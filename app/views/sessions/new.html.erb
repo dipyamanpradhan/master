@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="<%= asset_path 'styles.css' %>">
+</head>
+<body>
+  <div class="login-container">
+    <h1>Login</h1>
+    <%= form_with(url: login_path, local: true) do %>
+      <div>
+        <label for="email">Email:</label>
+        <%= text_field_tag :email %>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <%= password_field_tag :password %>
+      </div>
+      <div>
+        <%= submit_tag "Login" %>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <p class="alert"><%= flash[:alert] %></p>
+    <% end %>
+  </div>
+  <script src="<%= asset_path 'login.js' %>"></script>
+</body>
+</html>
